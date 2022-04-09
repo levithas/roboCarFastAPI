@@ -1,4 +1,4 @@
-import os
+import subprocess
 from pydantic import BaseModel
 from fastapi import FastAPI
 
@@ -18,7 +18,7 @@ async def root():
 
 @app.get("/cpu")
 async def get_cpuTemp():
-    res: str = os.system('sensors')
+    res: str = subprocess.check_output('sensors')
     return {"cpu": res}
 
 
