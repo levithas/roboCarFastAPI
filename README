@@ -1,0 +1,13 @@
+Installation
+------------
+
+1. git clone <url>
+1.5. cd /robocarFastAPI
+2. pip install poetry
+3. python -m poetry install
+
+
+Start Server
+------------
+1. python -m poetry shell
+2. uvicorn main:app --reload --host 0.0.0.0
