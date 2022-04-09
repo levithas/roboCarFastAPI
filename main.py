@@ -1,5 +1,7 @@
 import subprocess
 import re
+import sys
+
 from pydantic import BaseModel
 from fastapi import FastAPI
 
@@ -19,7 +21,7 @@ async def root():
 
 @app.get("/cpu")
 async def get_cpuTemp():
-    res: str = subprocess.check_output('sensors')
+    res: str = subprocess.check_output('sensors').decode(sys.stdout.encoding)
     temp = re.findall(r"\d+\.\d+°C", res)
     return {"cpu": res}
 
