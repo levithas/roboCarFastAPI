@@ -9,6 +9,6 @@ COPY pyproject.toml .
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-COPY * roboCar/
+COPY * /roboCar/
 
 ENTRYPOINT ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0"]
