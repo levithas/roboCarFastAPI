@@ -1,3 +1,4 @@
+import os
 from pydantic import BaseModel
 from fastapi import FastAPI
 
@@ -13,6 +14,12 @@ app = FastAPI()
 @app.get("/")
 async def root():
     return {"message": "Hier kommt vielleicht eine Control-Seite hin"}
+
+
+@app.get("/cpu")
+async def get_cpuTemp():
+    res = os.system('sensors')
+    return {"cpu": res}
 
 
 @app.post("/controls/")
