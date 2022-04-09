@@ -1,7 +1,7 @@
 FROM python
 WORKDIR roboCar
 
-RUN apt-get install lm-sensors
+RUN sudo apt-get install lm-sensors
 
 RUN pip install poetry
 COPY pyproject.toml .
