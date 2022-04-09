@@ -1,14 +1,20 @@
+from pydantic import BaseModel
 from fastapi import FastAPI
+
+
+class Control(BaseModel):
+    motor: int
+    steering: int
+
 
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
-    return {"message": "Hello Ich"}
+    return {"message": "Hier kommt vielleicht eine Control-Seite hin"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
+@app.post("/controls/")
+async def set_controls(control: Control):
+    return control
