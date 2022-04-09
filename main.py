@@ -18,7 +18,7 @@ async def root():
 
 @app.get("/cpu")
 async def get_cpuTemp():
-    res = os.system('sensors')
+    res: str = os.system('sensors')
     return {"cpu": res}
 
 
