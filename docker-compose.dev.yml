@@ -1,0 +1,9 @@
+version: '3'
+services:
+  robocar:
+    image: robocar
+    build: .
+    ports:
+      - 8000:8000
+    #devices:
+    #  - /dev/gpiomem:/dev/gpiomem
