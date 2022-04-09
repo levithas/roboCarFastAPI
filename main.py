@@ -20,7 +20,7 @@ async def root():
 @app.get("/cpu")
 async def get_cpuTemp():
     res: str = subprocess.check_output('sensors')
-    #temp = re.findall(r"\d+\.\d+°C", res)
+    temp = re.findall(r"\d+\.\d+°C", res)
     return {"cpu": res}
 
 
