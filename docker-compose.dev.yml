@@ -2,8 +2,18 @@ version: '3'
 services:
   robocar:
     image: robocar
-    build: .
+    build:
+      context: backend/
+      dockerfile: Dockerfile
     ports:
       - 8000:8000
     #devices:
     #  - /dev/gpiomem:/dev/gpiomem
+
+  frontend:
+    image: nuxt
+    build:
+      context: nuxtjs-robocar/
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
